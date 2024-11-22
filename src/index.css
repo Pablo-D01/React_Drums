@@ -1,13 +1,81 @@
-body {
+html {
+  font-size: 10px;
+  background: url("./images/drums.png") bottom center;
+  background-size: cover;
+}
+
+body,
+html {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.keys {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping of keys */
+  justify-content: center; /* Center the keys horizontally */
+  align-items: center; /* Center the keys vertically */
+  min-height: 100vh;
+  gap: 1rem; /* Space between keys */
+  padding: 1rem;
+}
+
+.key {
+  border: 0.4rem solid rgba(255, 255, 255, 0.27);
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  font-size: 1.5rem;
+  padding: 1rem 0.5rem;
+  transition: all 0.07s ease;
+  width: calc(50% - 2rem); /* Ensure two keys per row */
+  max-width: 12rem; /* Limit max width for larger screens */
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  text-shadow: 0 0 0.5rem black;
+  cursor: pointer; /* Pointer cursor on hover */
+  user-select: none; /* Disable text selection */
+}
+
+.key:hover {
+  border-color: #ffc600; /* Add hover effect */
+}
+
+.key.playing {
+  transform: scale(1.2);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
+kbd {
+  display: block;
+  font-size: 4rem;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #ffc600;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .key {
+    width: calc(50% - 1rem); /* Keys take up half the row */
+    font-size: 1.8rem; /* Adjust font size for smaller screens */
+  }
+
+  kbd {
+    font-size: 3rem;
+  }
+
+  .sound {
+    font-size: 1rem;
+  }
 }
